@@ -10,7 +10,19 @@ $(document).ready(function(){
             while(index <= streamsLength){
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + tweet.created_at);
+
+            var $user = $('<span class="userName"></span>');
+            $user.text('@' + tweet.user);
+            $user.appendTo($tweet);
+
+            var $message = $('<span></span>');
+            $message.text(': ' + tweet.message);
+            $message.appendTo($tweet);
+
+            var $time = $('<span></span>');
+            $time.text(' ' + tweet.created_at);
+            $time.appendTo($tweet);
+            //$tweet.text('@' + tweet.user + ': ' + tweet.message + tweet.created_at);
             $tweet.prependTo($feed);
             index += 1;
           }

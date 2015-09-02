@@ -53,6 +53,6 @@ User Names
 ===========
 */
 
-.feed {
+.feed div .userName {
   color: blue;
 }
