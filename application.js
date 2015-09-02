@@ -6,9 +6,9 @@ $(document).ready(function(){
     var index = 0;
     var streamsLength = streams.home.length - 1;
 
-    var updateFeed = function() {
+    var updateFeed = function(stream) {
         while(index <= streamsLength){
-        var tweet = streams.home[index];
+        var tweet = stream[index];//streams.home[index];
         var $tweet = $('<div></div>');
 
         var $user = $('<span class="userName"></span>');
@@ -22,28 +22,28 @@ $(document).ready(function(){
         var $time = $('<span></span>');
         $time.text(' ' + tweet.created_at);
         $time.appendTo($tweet);
-        //$tweet.text('@' + tweet.user + ': ' + tweet.message + tweet.created_at);
+        
         $tweet.prependTo($feed);
         index += 1;
       }
     };
 
     //Initial update of feed right after the DOM loads
-    updateFeed();
+    updateFeed(streams.home);
 
     //Listens for button event. Prepends new tweets to the feed
     $(".refresh").on('click', function() {
       if(streams.home.length - 1 > index) {
         streamsLength = streams.home.length - 1;
-        updateFeed();
+        updateFeed(streams.home);
       }
     })
 
     $(".userName").on('click', function() {
         //show only tweets that are in the user's stream
         $feed.html('');
-        streamsLength = streams.users[this.text().replace('@','')];
-        updateFeed();
+        streamsLength = streams.users.shawndrost.length - 1;//$(this).text().replace('@','')];
+        updateFeed(streams.users.shawndrost);
     })
 
 
