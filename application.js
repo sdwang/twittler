@@ -30,7 +30,8 @@ $(document).ready(function(){
             //show only tweets that are in the user's stream
             $feed.html('');
             //$(this).text().replace('@','')];
-            updateFeed(streams.users.shawndrost, 0, streams.users.shawndrost.length - 1);
+            var name = $(this).text().replace('@','');
+            updateFeed(streams.users[name], 0, streams.users[name].length - 1);
         })
       }
     };
@@ -48,7 +49,7 @@ $(document).ready(function(){
     })
 
     $(".submitTweet").on('click', function() {
-        
+
     })
 
 
