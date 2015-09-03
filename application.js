@@ -20,7 +20,7 @@ $(document).ready(function(){
         $message.appendTo($tweet);
 
         var $time = $('<span></span>');
-        $time.text(' ' + tweet.created_at);
+        $time.text(' ' + moment(tweet.created_at).fromNow());
         $time.appendTo($tweet);
         
         $tweet.prependTo($feed);
@@ -47,7 +47,7 @@ $(document).ready(function(){
         updateFeed(streams.home, 0, streams.home.length - 1);
       //}
     })
-    
+
     $('#submitTweet').on('click', function() {
         if(streams.users.myself === undefined) {
             streams.users.myself = [];
