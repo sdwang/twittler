@@ -26,7 +26,7 @@ $(document).ready(function(){
         $tweet.prependTo($feed);
         index += 1;
 
-        $(".userName").on('click', function() {
+        $('.userName').on('click', function() {
             //show only tweets that are in the user's stream
             $feed.html('');
             //$(this).text().replace('@','')];
@@ -40,7 +40,7 @@ $(document).ready(function(){
     updateFeed(streams.home, 0, streams.home.length - 1);
 
     //Listens for button event. Prepends new tweets to the feed
-    $(".refresh").on('click', function() {
+    $('.refresh').on('click', function() {
       //if(streams.home.length - 1 > index) {
         //streamsLength = streams.home.length - 1;
         $feed.html('');
@@ -48,7 +48,18 @@ $(document).ready(function(){
       //}
     })
 
-    $(".submitTweet").on('click', function() {
+    $('#submitTweet').on('click', function() {
+        if(streams.users.myself === undefined) {
+            streams.users.myself = [];
+        };
+        var tweet = {
+            user: "myself",
+            message: $('#userTweet')[0].value,
+            created_at: new Date()
+        };
+
+        addTweet(tweet);
+        updateFeed(streams.home, 0, streams.home.length - 1);
 
     })
 
