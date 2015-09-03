@@ -25,6 +25,13 @@ $(document).ready(function(){
         
         $tweet.prependTo($feed);
         index += 1;
+
+        $(".userName").on('click', function() {
+            //show only tweets that are in the user's stream
+            $feed.html('');
+            //$(this).text().replace('@','')];
+            updateFeed(streams.users.shawndrost, 0, streams.users.shawndrost.length - 1);
+        })
       }
     };
 
@@ -38,14 +45,6 @@ $(document).ready(function(){
         $feed.html('');
         updateFeed(streams.home, 0, streams.home.length - 1);
       //}
-    })
-
-
-    $(".userName").on('click', function() {
-        //show only tweets that are in the user's stream
-        $feed.html('');
-        //$(this).text().replace('@','')];
-        updateFeed(streams.users.shawndrost, 0, streams.users.shawndrost.length - 1);
     })
 
 
