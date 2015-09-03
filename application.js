@@ -11,7 +11,7 @@ $(document).ready(function(){
         var tweet = stream[index];//streams.home[index];
         var $tweet = $('<div></div>');
 
-        var $user = $('<button class="userName"></button>');
+        var $user = $('<span class="userName"></span>');
         $user.text('@' + tweet.user);
         $user.appendTo($tweet);
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
       //}
     })
 
-    
+
     $(".userName").on('click', function() {
         //show only tweets that are in the user's stream
         $feed.html('');
