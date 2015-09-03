@@ -47,5 +47,9 @@ $(document).ready(function(){
       //}
     })
 
+    $(".submitTweet").on('click', function() {
+        
+    })
+
 
 });
