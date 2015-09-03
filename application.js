@@ -47,7 +47,7 @@ $(document).ready(function(){
         updateFeed(streams.home, 0, streams.home.length - 1);
       //}
     })
-
+    
     $('#submitTweet').on('click', function() {
         if(streams.users.myself === undefined) {
             streams.users.myself = [];
