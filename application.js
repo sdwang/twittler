@@ -3,15 +3,15 @@ $(document).ready(function(){
     $feed.html('');
 
     //var index = streams.home.length - 1;
-    var index = 0;
-    var streamsLength = streams.home.length - 1;
+    //var index = 0;
+    //var streamsLength = streams.home.length - 1;
 
-    var updateFeed = function(stream) {
+    var updateFeed = function(stream, index, streamsLength) {
         while(index <= streamsLength){
         var tweet = stream[index];//streams.home[index];
         var $tweet = $('<div></div>');
 
-        var $user = $('<span class="userName"></span>');
+        var $user = $('<button class="userName"></button>');
         $user.text('@' + tweet.user);
         $user.appendTo($tweet);
 
@@ -29,21 +29,23 @@ $(document).ready(function(){
     };
 
     //Initial update of feed right after the DOM loads
-    updateFeed(streams.home);
+    updateFeed(streams.home, 0, streams.home.length - 1);
 
     //Listens for button event. Prepends new tweets to the feed
     $(".refresh").on('click', function() {
-      if(streams.home.length - 1 > index) {
-        streamsLength = streams.home.length - 1;
-        updateFeed(streams.home);
-      }
+      //if(streams.home.length - 1 > index) {
+        //streamsLength = streams.home.length - 1;
+        $feed.html('');
+        updateFeed(streams.home, 0, streams.home.length - 1);
+      //}
     })
 
+    
     $(".userName").on('click', function() {
         //show only tweets that are in the user's stream
         $feed.html('');
-        streamsLength = streams.users.shawndrost.length - 1;//$(this).text().replace('@','')];
-        updateFeed(streams.users.shawndrost);
+        //$(this).text().replace('@','')];
+        updateFeed(streams.users.shawndrost, 0, streams.users.shawndrost.length - 1);
     })
 
 
