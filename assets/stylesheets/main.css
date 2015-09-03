@@ -56,3 +56,22 @@ User Names
 .feed div .userName {
   color: blue;
 }
+
+/*
+===========
+Header
+===========
+*/
+
+header {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  background-color: #336699;
+  color: white;
+  text-align: center;
+  height: 60px;
+}
+
+header h1 {
+  padding-top: 10px;
+}
