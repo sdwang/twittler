@@ -9,19 +9,19 @@ $(document).ready(function(){
     var updateFeed = function(stream, index, streamsLength) {
         while(index <= streamsLength){
         var tweet = stream[index];//streams.home[index];
-        var $tweet = $('<div></div>');
+        var $tweet = $('<div class="tweet"></div>');
 
         var $user = $('<span class="userName"></span>');
         $user.text('@' + tweet.user);
         $user.appendTo($tweet);
 
-        var $message = $('<span></span>');
-        $message.text(': ' + tweet.message);
-        $message.appendTo($tweet);
-
-        var $time = $('<span></span>');
+        var $time = $('<span class="timeStamp"></span>');
         $time.text(' ' + moment(tweet.created_at).fromNow());
         $time.appendTo($tweet);
+
+        var $message = $('<span class="message"></span>');
+        $message.text(tweet.message);
+        $message.appendTo($tweet);
         
         $tweet.prependTo($feed);
         index += 1;
