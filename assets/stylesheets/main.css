@@ -55,6 +55,7 @@ Background
 
 body {
   background-image: url("../images/goldengate.jpeg");
+  background-attachment: fixed;
   background-repeat: repeat-y;
   background-color: rgba(0, 127, 255, 0.5);
   font-family: Helvetica, Arial, sans-serif;
